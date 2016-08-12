@@ -1,0 +1,26 @@
+<form action="/posts/create" id="blogform" method="POST">
+  <input type="text" name="title" />
+  <input type="text" name="message" />
+  <input type="submit" />
+</form>
+
+<form action="/posts/<%= @post.id %>/update" id="blogform" method="PUT">
+  <input type="text" name="title" value="<%= @post.title %>"/>
+  <input type="text" name="message" value="<%= @post.message %>"/>
+  <input type="submit" />
+</form>
+
+class Post < ActiveRecord::Base
+end
+
+
+
+GET /posts/:id/edit
+
+get '/posts/:id/edit' do
+  @post = Blog.find(params[:id])
+end
+
+put '/posts/:id/update' do
+
+end
